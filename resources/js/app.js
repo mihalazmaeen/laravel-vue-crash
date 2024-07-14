@@ -16,7 +16,9 @@ import { createApp } from "vue";
 const app = createApp({});
 
 import ExampleComponent from "./components/ExampleComponent.vue";
+import StudentCreateComponent from "./components/student/create.vue";
 app.component("example-component", ExampleComponent);
+app.component("student-create-component", StudentCreateComponent);
 
 /**
  * The following block of code may be used to automatically register your
