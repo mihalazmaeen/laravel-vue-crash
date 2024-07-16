@@ -77,15 +77,8 @@ export default {
         goBack() {
             this.$router.go(-1);
         },
-        saveForm(studentForm) {
-            this.$refs[studentForm].validate((valid) => {
-                if (valid) {
-                   this.$store.dispatch("createStudent", this.form);
-                } else {
-                    console.log('error submit!!');
-                    return false;
-                }
-            })
+        saveForm() {
+            alert("save");
         },
     },
 };
