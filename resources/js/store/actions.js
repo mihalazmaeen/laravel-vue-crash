@@ -3,11 +3,14 @@ import { ref } from "vue";
 import { ElLoading } from "element-plus";
 import { ElNotification } from "element-plus";
 
-const fullscreenLoading = ref(false);
 const openFullScreen = () => {
-    fullscreenLoading.value = true;
+    const loading = ElLoading.service({
+        lock: true,
+        text: "Loading",
+        background: "rgba(0, 0, 0, 0.7)",
+    });
     setTimeout(() => {
-        fullscreenLoading.value = false;
+        loading.close();
     }, 2000);
 };
 
@@ -18,8 +21,9 @@ export const createStudent = ({ commit }, payload) => {
         .then((response) => {
             ElNotification({
                 title: "Success",
-                message: "This is a success message",
+                message: "Student Created Successfully",
                 type: "success",
+                position: "top-right",
             });
 
             setTimeout(() => {
@@ -29,8 +33,9 @@ export const createStudent = ({ commit }, payload) => {
         .catch((error) => {
             ElNotification({
                 title: "Error",
-                message: "This is an error message",
+                message: "Something went wrong",
                 type: "error",
+                position: "top-right",
             });
         });
 };
